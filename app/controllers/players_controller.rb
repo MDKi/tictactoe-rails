@@ -8,12 +8,13 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     @player.email.downcase!
     if @player.save
+      flash[:notice] = "Account created successfully!"
       redirect_to login
     else
       # TODO
       # Handle error creating account.
-      # flash.now.alert = "Couldn't create account."
-      # render :new
+      flash.now.alert = "Couldn't create account."
+      render :new
     end
   end
 

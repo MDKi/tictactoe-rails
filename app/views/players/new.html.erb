@@ -1,2 +1,27 @@
-<h1>Players#new</h1>
-<p>Find me in app/views/players/new.html.erb</p>
+<h1>Sign Up</h1>
+
+<%= form_with model: @players do |form| %>
+  <div>
+    <%= form.label :display_name %>
+    <%= form.text_field :display_name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= form.submit "Sign up" %>
+  </div>
+<% end %>

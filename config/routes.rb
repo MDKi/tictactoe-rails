@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # Sign up form
-  get 'signup', to: 'players#new', as: 'player'
+  get 'signup', to: 'players#new', as: 'players'
   # Sign up
   post 'signup', to: 'players#create'
 end

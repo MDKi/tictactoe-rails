@@ -9,12 +9,14 @@ class PlayersController < ApplicationController
     @player.email.downcase!
     if @player.save
       flash[:notice] = "Account created successfully!"
-      redirect_to login
+      # Changed until I implement login route to prevent raising an exception.
+      # redirect_to login_url
+      redirect_to signup_url
     else
       # TODO
       # Handle error creating account.
-      flash.now.alert = "Couldn't create account."
-      render :new
+      flash[:alert] = "Couldn't create account."
+      redirect_to signup_url
     end
   end
 
@@ -23,6 +25,6 @@ class PlayersController < ApplicationController
 
   private
     def player_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:player).permit(:display_name, :email, :password, :password_confirmation)
     end
 end

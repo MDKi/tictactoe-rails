@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   post 'signup', to: 'players#create'
 
   # Sign in / Log in form
-	get 'signin', to: 'sessions#new'
+	get 'login', to: 'sessions#new'
 	# Sign in / Log in
-	post 'signin', to: 'sessions#create'
+	post 'login', to: 'sessions#create'
 	# Sign out / Log out
-	delete 'signout', to: 'sessions#destroy'  
+	delete 'logout', to: 'sessions#destroy'  
 end

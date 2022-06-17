@@ -19,6 +19,15 @@
 
   <body>
 
+    <% if logged_in_player %>
+      <!-- logged_in_player will return a truthy if a player is logged in -->
+      <%= "Logged in as #{logged_in_player.display_name}. (Your email is #{logged_in_player.email}.)" %> | <%= link_to 'Log Out', logout_path, method: :delete %>
+      <%# TODO Log out link does not use delete method. %>
+    <% else %>
+      <!-- not logged in -->
+      <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', signup_path %>
+    <% end %>
+
     <% if alert %>
       <%= alert %>
     <% end %>

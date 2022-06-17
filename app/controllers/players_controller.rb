@@ -9,9 +9,7 @@ class PlayersController < ApplicationController
     @player.email.downcase!
     if @player.save
       flash[:notice] = "Account created successfully!"
-      # Changed until I implement login route to prevent raising an exception.
-      # redirect_to login_url
-      redirect_to signup_url
+      redirect_to login_url
     else
       # TODO
       # Handle error creating account.
